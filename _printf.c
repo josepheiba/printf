@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * check_a_print - check code.
+ * @format : variable
+ * Return: check declaration
+ */
+
 int (*check_a_print(const char *format))(va_list arg_ptr)
 {
 	print_option ops[] = {
@@ -26,6 +32,12 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 	}
 	return ((ops + i)->function);
 }
+
+/**
+ * _printf - check code.
+ * @format : variable
+ * Return: check declaration
+ */
 
 int _printf(const char *format, ...)
 {

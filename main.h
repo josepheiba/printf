@@ -4,10 +4,17 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+/**
+ * struct print_option - Struct print_option
+ *
+ * @specifier: The operator
+ * @function: The function associated
+ */
+
 typedef struct print_option
 {
-        char *specifier;
-        int (*function)(va_list);
+	char *specifier;
+	int (*function)(va_list);
 } print_option;
 
 int _printf(const char *format, ...);
