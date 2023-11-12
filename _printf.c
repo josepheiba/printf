@@ -27,10 +27,14 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 	return((ops + i)->function);
 }
 
-void _printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	va_list arg_ptr;
 	int i;
+
+	if (format == NULL)
+		return (-1);
+
 	va_start (arg_ptr, format);
 	
 	i = 0;
@@ -47,4 +51,5 @@ void _printf(const char *format, ...)
 		i++;
 	}
 	va_end(arg_ptr);
+	return (0);
 }

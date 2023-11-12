@@ -10,7 +10,7 @@ typedef struct print_option
         int (*function)(va_list);
 } print_option;
 
-void _printf(const char *format, ...);
+int _printf(const char *format, ...);
 int (*check_a_print(const char *format))(va_list arg_ptr);
 int print_buffer_return(va_list arg_ptr);
 int print_buffer(const char *format);
