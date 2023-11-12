@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * check_a_print - check code.
+ * check_a_print - check the code.
  * @format : variable
  * Return: check declaration
  */
