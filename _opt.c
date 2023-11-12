@@ -9,7 +9,7 @@
 int print_buffer_return(va_list arg_ptr)
 {
 	(void) arg_ptr;
-	return (0);
+	return (- 1);
 }
 
 /**
