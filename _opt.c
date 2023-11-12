@@ -9,7 +9,7 @@ int print_buffer_return(va_list arg_ptr)
 int print_buffer(const char *format)
 {
 	write(1, format, 1);
-	return(0);
+	return(1);
 }
 
 int print_char(va_list arg_ptr)
@@ -35,7 +35,7 @@ int print_string(va_list arg_ptr)
 	i++;
 	}
 
-	return(1);
+	return(i);
 }
 
 int print_percent(va_list arg_ptr)
