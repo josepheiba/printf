@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start (arg_ptr, format);
-	
+
 	i = 0;
 	while (format[i] != '\0')
 	{
@@ -51,5 +51,5 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(arg_ptr);
-	return (0);
+	return (i);
 }
