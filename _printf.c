@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 {
 	va_list arg_ptr;
 	int i;
-	int cnt, pls;
+	long int cnt, pls;
 
 	if (format == NULL)
 		return (-1);
