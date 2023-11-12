@@ -12,6 +12,7 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 		{"%c", print_char},
 		{"%s", print_string},
 		{"%%", print_percent},
+		{"%", print_buffer_return_percent},
 		{"ok", print_buffer_return}
 	};
 	int i, j;
@@ -43,7 +44,7 @@ int _printf(const char *format, ...)
 {
 	va_list arg_ptr;
 	int i;
-	long int cnt, pls;
+	int cnt, pls;
 
 	if (format == NULL)
 		return (-1);
@@ -55,9 +56,13 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		pls = check_a_print(format + i)(arg_ptr);
-		if (pls == - 1)
+		if (pls == -1)
 		{
 			pls = print_buffer(format + i);
+		}
+		if (pls == -2)
+		{
+			pls = 0;
 		}
 		else
 		{
@@ -67,5 +72,7 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(arg_ptr);
+	if (cnt == 0)
+		return (-1);
 	return (cnt);
 }

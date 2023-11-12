@@ -19,6 +19,7 @@ typedef struct print_option
 
 int _printf(const char *format, ...);
 int (*check_a_print(const char *format))(va_list arg_ptr);
+int print_buffer_return_percent(va_list arg_ptr);
 int print_buffer_return(va_list arg_ptr);
 int print_buffer(const char *format);
 int print_char(va_list arg_ptr);
