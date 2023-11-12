@@ -55,7 +55,7 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		pls = check_a_print(format + i)(arg_ptr);
-		if (pls == - 1)
+		if (pls == -1)
 		{
 			pls = print_buffer(format + i);
 		}
