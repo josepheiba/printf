@@ -84,8 +84,15 @@ int print_bin(va_list arg_ptr)
 	unsigned int n;
 	int i, size;
 	char *binary;
+	char zero;
 
 	n = va_arg(arg_ptr, int);
+	zero = '0';
+
+	if (n == 0)
+		return (write(1, &zero, 1));
+	if (n < 1)
+		return (-1);
 
 	size = find_num_bits(n);
 	binary = malloc(size * sizeof(char));
