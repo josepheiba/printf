@@ -127,7 +127,7 @@ int print_hex(va_list arg_ptr)
 int print_n_string(va_list arg_ptr)
 {
 	char *buffer_1_byte;
-	int i;
+	int i, counter;
 	char *nl = "(null)";
 	char slash = '\\';
 	char ex = 'x';
@@ -137,7 +137,7 @@ int print_n_string(va_list arg_ptr)
 	if (buffer_1_byte == NULL)
 		buffer_1_byte = nl;
 
-	i = 0;
+	i = counter = 0;
 
 	while (*(buffer_1_byte + i) != '\0')
 	{
@@ -150,8 +150,12 @@ int print_n_string(va_list arg_ptr)
 			write(1, &slash, 1);
 			write(1, &ex, 1);
 			write_hex(*(buffer_1_byte + i));
+			counter++;
+			counter++;
+			counter++;
 		}
 		i++;
+		counter++;
 	}
 
 	return (i);
