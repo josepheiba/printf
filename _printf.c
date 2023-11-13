@@ -17,7 +17,7 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 		{"%u", print_unsigned},
 		{"%o", print_octal},
 		{"%x", print_hex},
-		{"%X", print_hex},
+		{"%X", print_hex_u},
 		{"%%", print_percent},
 		{"ok", print_buffer_return}
 	};
