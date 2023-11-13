@@ -12,15 +12,17 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 		{"%c", print_char},
 		{"%s", print_string},
 		{"%%", print_percent},
+		{"%", print_none_return},
 		{"ok", print_buffer_return}
 	};
 	int i, j;
 
-	i = j = 0;
+	i = 0;
 
-	while (i < 3)
+	while (i < 4)
 	{
-		while (format[j] == (ops + i)->specifier[j])
+		j = 0;
+		while (format[j] == (ops + i)->specifier[j] && format[j] != '\0')
 		{
 			j++;
 			if ((ops + i)->specifier[j] == '\0')
@@ -58,6 +60,10 @@ int _printf(const char *format, ...)
 		if (pls == -1)
 		{
 			pls = print_buffer(format + i);
+		}
+		else if (pls == -2)
+		{
+			pls = 0;
 		}
 		else
 		{
