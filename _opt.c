@@ -72,63 +72,41 @@ int print_percent(va_list arg_ptr)
 }
 
 /**
- * print_integer - Print an integer to the standard output.
+ * print_int - Print an integer to the standard output.
  * @arg_ptr: Variable argument list.
  * Return: Number of characters printed.
 */
 
-int print_integer(va_list arg_ptr)
+int print_int(va_list arg_ptr)
 {
-	int num = va_arg(arg_ptr, int);
-	int temp = num;
-	int digit_count = 0;
-	char *buffer;
-	int i;
+	int n, t, l;
+	unsigned int num;
+	char minus, cum;
 
-	do 
+	minus = '-';
+
+	n = va_arg(arg_ptr, int);
+	t = 1;
+	l = 0;
+
+	if (n < 0)
 	{
-		temp /= 10;
-		digit_count++;
+		l += write(1, &minus, 1);
+		num = -n;
 	}
-	
-	while (temp != 0);
-	
-	if (num == 0) 
+	else
+		num = n;
+
+	while (num / t > 9)
+		t *= 10;
+
+	while (t != 0)
 	{
-		if (write(1, "0", 1) == -1) 
-		{
-			return -1;
-		}
-		return 1;
-	}		
-		buffer = (char *)malloc(digit_count + 1);
-		
-		if (buffer == NULL)
-		{
-			return -1;
-		}
+		cum = '0' + num / t;
+		l += write(1, &cum, 1);
+		num %= t;
+		t /= 10;
+	}
 
-		for (i = digit_count - 1; i >= 0; i--)
-		{
-			buffer[i] = '0' + num % 10;
-			num /= 10;
-		}
-		
-		if (write(1, buffer, digit_count) == -1)
-		{
-			free(buffer);
-			return -1;
-		}
-			free(buffer);
-			return digit_count;
-}
-/**
- * print_decimal - check code.
- * @arg_ptr: variable
- * Return: check declaration
-**/
-
-int print_decimal(va_list arg_ptr)
-{
-	return (print_integer(arg_ptr));
+	return (l);
 }

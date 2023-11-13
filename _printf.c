@@ -11,8 +11,8 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 	print_option ops[] = {
 		{"%c", print_char},
 		{"%s", print_string},
-		{"%i", print_string},
-		{"%d", print_string},
+		{"%i", print_int},
+		{"%d", print_int},
 		{"%%", print_percent},
 		{"ok", print_buffer_return}
 	};
