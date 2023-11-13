@@ -53,26 +53,6 @@ int print_int(va_list arg_ptr)
 }
 
 /**
- * find_num_bits - Print an integer to the standard output.
- * @n: Variable argument list.
- * Return: Number of characters printed.
-*/
-
-int find_num_bits(int n)
-{
-	int count;
-
-	count = 0;
-
-	while (n != 0)
-	{
-		n >>= 1;
-	count++;
-	}
-	return (count);
-}
-
-/**
  * print_bin - Print an integer to the standard output.
  * @arg_ptr: Variable argument list.
  * Return: Number of characters printed.
@@ -80,30 +60,30 @@ int find_num_bits(int n)
 
 int print_bin(va_list arg_ptr)
 {
+	unsigned int n, m, i, sum;
+	unsigned int a[32];
+	int count;
 
-	unsigned int n;
-	int i, size;
-	char *binary;
-	char zero;
+	n = va_arg(arg_ptr, unsigned int);
+	m = 2147483648; /* (2 ^ 31) */
+	a[0] = n / m;
 
-	n = va_arg(arg_ptr, int);
-	zero = '0';
-
-	if (n == 0)
-		return (write(1, &zero, 1));
-	if (n < 1)
-		return (-1);
-
-	size = find_num_bits(n);
-	binary = malloc(size * sizeof(char));
-	size = (size == 0) ? 1 : size;
-	binary[size] = '\0';
-
-	for (i = size - 1; i >= 0; i--)
+	for (i = 1; i < 32; i++)
 	{
-		binary[i] = (n & 1) + '0';
-	n >>= 1;
+		m /= 2;
+		a[i] = (n / m) % 2;
 	}
-	return (write(1, binary, size));
-	free(binary);
+
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
+	{
+		sum += a[i];
+		if (sum || i == 31)
+		{
+		char z = '0' + a[i];
+
+		write(1, &z, 1);
+		count++;
+		}
+	}
+	return (count);
 }
