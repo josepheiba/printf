@@ -117,3 +117,84 @@ int print_hex(va_list arg_ptr)
 	free(array);
 	return (counter);
 }
+
+/**
+ * print_n_string - check code.
+ * @arg_ptr : variable
+ * Return: check declaration
+ */
+
+int print_n_string(va_list arg_ptr)
+{
+	char *buffer_1_byte;
+	int i;
+	char *nl = "(null)";
+	char slash = '\\';
+	char ex = 'x';
+
+	buffer_1_byte = va_arg(arg_ptr, char *);
+
+	if (buffer_1_byte == NULL)
+		buffer_1_byte = nl;
+
+	i = 0;
+
+	while (*(buffer_1_byte + i) != '\0')
+	{
+		if (*(buffer_1_byte + i) >= 32 && *(buffer_1_byte + i) < 127)
+		{
+			write(1, buffer_1_byte + i, 1);
+		}
+		else
+		{
+			write(1, &slash, 1);
+			write(1, &ex, 1);
+			write_hex(*(buffer_1_byte + i));
+		}
+		i++;
+	}
+
+	return (i);
+}
+
+/**
+ * write_hex - Print an integer to the standard output.
+ * @unp: Variable argument list.
+ * Return: Number of characters printed.
+*/
+
+int write_hex(char unp)
+{
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int tem, num;
+	char c;
+
+	num = unp;
+	tem = num;
+
+	while (num / 16 != 0)
+	{
+		num /= 16;
+		counter++;
+	}
+	counter++;
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = tem % 16;
+		tem /= 16;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 7;
+		c = array[i] + '0';
+		write(1, &c, 1);
+	}
+	free(array);
+	return (counter);
+}

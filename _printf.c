@@ -11,6 +11,7 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 	print_option ops[] = {
 		{"%c", print_char},
 		{"%s", print_string},
+		{"%S", print_n_string},
 		{"%i", print_int},
 		{"%d", print_int},
 		{"%b", print_bin},
@@ -28,7 +29,7 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 	if (format[0] == '%' && format[1] == '\0')
 		return (print_none_return);
 
-	while (i < 10)
+	while (i < 11)
 	{
 		j = 0;
 		while (format[j] == (ops + i)->specifier[j] && format[j] != '\0')
