@@ -7,7 +7,7 @@
 /**
  * struct print_option - Struct print_option
  *
- * @specifier: The operator
+ * @specifier: The Operator
  * @function: The function associated
  */
 
