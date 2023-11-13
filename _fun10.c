@@ -186,6 +186,13 @@ int write_hex(char unp)
 	counter++;
 	counter++;
 	array = malloc(counter * sizeof(int));
+	if (array == NULL)
+		return (-1);
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = 0;
+	}
 
 	for (i = 0; i < counter; i++)
 	{
