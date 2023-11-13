@@ -87,3 +87,20 @@ int print_bin(va_list arg_ptr)
 	}
 	return (count);
 }
+/**
+ * print_unsigned - Print an integer to the standard output.
+ * @arg_ptr: Variable argument list.
+ * Return: Number of characters printed.
+*/
+
+int print_unsigned(va_list arg_ptr)
+{
+	unsigned int num;
+
+	num = va_arg(arg_ptr, unsigned int);
+	if (num == 0)
+		return (print_number(num, 0));
+	if (num < 1)
+		return (-1);
+	return (print_number(num, 0));
+}

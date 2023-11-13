@@ -31,5 +31,9 @@ int print_int(va_list arg_ptr);
 int print_bin(va_list arg_ptr);
 int print_number(unsigned int num, int i);
 int find_num_bits(int n);
+int print_unsigned(va_list arg_ptr);
+int print_octal(va_list arg_ptr);
+int print_hex(va_list arg_ptr);
+int print_hex_u(va_list arg_ptr);
 
 #endif

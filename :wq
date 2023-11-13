@@ -1,0 +1,29 @@
+int find_num_bits(int n, int base) {
+    int count = 0;
+    while (n != 0) {
+        n /= base;
+        count++;
+    }
+    return count;
+}
+
+int print_oct(va_list arg_ptr) {
+	int n, size;
+	char *octal;
+	
+	n = va_arg(arg_ptr, int);
+	
+	size = find_num_bits(n, 8);
+    
+	size = (size == 0) ? 1 : size;
+	octal = malloc((size + 1) * sizeof(char));
+	octal[size] = '\0';
+
+	for (int i = size - 1; i >= 0; i--)
+	{
+        	octal[i] = (n % 8) + '0';
+		n /= 8;
+	}
+
+	return write(1, octal, size);
+}
