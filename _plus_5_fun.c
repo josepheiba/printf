@@ -82,11 +82,12 @@ int print_bin(va_list arg_ptr)
 {
 
 	int i, n, size;
-	char binary[32];
+	char *binary;
 
 	n = va_arg(arg_ptr, int);
 
 	size = find_num_bits(n);
+	binary = malloc(size * sizeof(char));
 	size = (size == 0) ? 1 : size;
 	binary[size] = '\0';
 
@@ -96,4 +97,5 @@ int print_bin(va_list arg_ptr)
 	n >>= 1;
 	}
 	return (write(1, binary, size));
+	free(binary);
 }
