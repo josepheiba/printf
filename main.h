@@ -3,6 +3,8 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * struct print_option - Struct print_option
@@ -25,5 +27,7 @@ int print_buffer(const char *format);
 int print_char(va_list arg_ptr);
 int print_string(va_list arg_ptr);
 int print_percent(va_list arg_ptr);
+int print_integer(va_list arg_ptr);
+int print_decimal(va_list arg_ptr);
 
 #endif
