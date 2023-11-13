@@ -158,7 +158,7 @@ int print_n_string(va_list arg_ptr)
 		counter++;
 	}
 
-	return (i);
+	return (counter);
 }
 
 /**
