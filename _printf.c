@@ -3,7 +3,7 @@
 /**
  * check_a_print - check the code.
  * @format : variable
- * Return: check the declaration
+ * Return: check declaration
  */
 
 int (*check_a_print(const char *format))(va_list arg_ptr)
