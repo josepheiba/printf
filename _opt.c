@@ -91,21 +91,21 @@ int print_int(va_list arg_ptr)
 
 	if (n < 0)
 	{
-		l += write(1, &minus, 1);
+		l = l + write(1, &minus, 1);
 		num = -n;
 	}
 	else
 		num = n;
 
 	while (num / t > 9)
-		t *= 10;
+		t = t * 10;
 
 	while (t != 0)
 	{
 		cum = '0' + num / t;
-		l += write(1, &cum, 1);
-		num %= t;
-		t /= 10;
+		l = l + write(1, &cum, 1);
+		num = num % t;
+		t = t / 10;
 	}
 
 	return (l);
