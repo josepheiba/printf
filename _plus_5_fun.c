@@ -81,7 +81,8 @@ int find_num_bits(int n)
 int print_bin(va_list arg_ptr)
 {
 
-	int i, n, size;
+	unsigned int n;
+	int i, size;
 	char *binary;
 
 	n = va_arg(arg_ptr, int);
