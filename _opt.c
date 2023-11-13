@@ -72,41 +72,29 @@ int print_percent(va_list arg_ptr)
 }
 
 /**
- * print_int - Print an integer to the standard output.
- * @arg_ptr: Variable argument list.
+ * print_number - Print an integer to the standard output.
+ * @num: Variable argument list.
+ * @i: Variable argument list.
  * Return: Number of characters printed.
 */
 
-int print_int(va_list arg_ptr)
+int print_number(unsigned int num, int i)
 {
-	int n, t, l;
-	unsigned int num;
-	char minus, cum;
+	int exp;
+	char cum;
 
-	minus = '-';
+	exp = 1;
 
-	n = va_arg(arg_ptr, int);
-	t = 1;
-	l = 0;
+	while (num / exp > 9)
+		exp = exp * 10;
 
-	if (n < 0)
+	while (exp != 0)
 	{
-		l = l + write(1, &minus, 1);
-		num = -n;
-	}
-	else
-		num = n;
-
-	while (num / t > 9)
-		t = t * 10;
-
-	while (t != 0)
-	{
-		cum = '0' + num / t;
-		l = l + write(1, &cum, 1);
-		num = num % t;
-		t = t / 10;
+		cum = '0' + num / exp;
+		i = i + write(1, &cum, 1);
+		num = num % exp;
+		exp = exp / 10;
 	}
 
-	return (l);
+	return (i);
 }

@@ -28,5 +28,8 @@ int print_char(va_list arg_ptr);
 int print_string(va_list arg_ptr);
 int print_percent(va_list arg_ptr);
 int print_int(va_list arg_ptr);
+int print_bin(va_list arg_ptr);
+int print_number(unsigned int num, int i);
+int find_num_bits(int n);
 
 #endif
