@@ -12,14 +12,16 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 		{"%c", print_char},
 		{"%s", print_string},
 		{"%%", print_percent},
-		{"%", print_none_return},
 		{"ok", print_buffer_return}
 	};
 	int i, j;
 
 	i = 0;
 
-	while (i < 4)
+	if (format[0] == '%' && format[1] == '\0')
+		return (print_none_return);
+
+	while (i < 3)
 	{
 		j = 0;
 		while (format[j] == (ops + i)->specifier[j] && format[j] != '\0')

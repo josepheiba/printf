@@ -37,8 +37,12 @@ int print_string(va_list arg_ptr)
 {
 	char *buffer_1_byte;
 	int i;
+	char *nl = "(null)";
 
 	buffer_1_byte = va_arg(arg_ptr, char *);
+
+	if (buffer_1_byte == NULL)
+		buffer_1_byte = nl;
 
 	i = 0;
 
