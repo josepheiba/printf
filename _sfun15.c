@@ -57,14 +57,8 @@ int print_r_string(va_list arg_ptr)
 	if (buffer_1_byte == NULL)
 	{
 		buffer_1_byte = nl;
-		i = 0;
-
-		while (*(buffer_1_byte + i) != '\0')
-		{
-			write(1, buffer_1_byte + i, 1);
-			i++;
-		}
-
+		i = 6;
+		write(1, buffer_1_byte, 6);
 		return (i);
 	}
 
@@ -81,11 +75,10 @@ int print_r_string(va_list arg_ptr)
 				break;
 			}
 		}
-		if (!(*(buffer_1_byte + i) >= 65 && *(buffer_1_byte + i) < 127))
-		{
-			write(1, buffer_1_byte + i, 1);
-			count++;
-		}
+		if ((*(buffer_1_byte + i) < 65) || ((*(buffer_1_byte + i) > 90)
+					&& (*(buffer_1_byte + i) < 97)) || (*(buffer_1_byte + i) > 122))
+		write(1, buffer_1_byte + i, 1);
+		count++;
 		i++;
 	}
 	return (count);
