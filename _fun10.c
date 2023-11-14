@@ -169,12 +169,12 @@ int print_n_string(va_list arg_ptr)
 
 int write_hex(char unp)
 {
-	int i;
+	int i, counter, cnt;
 	int *array;
-	int counter = 0;
 	unsigned int tem, num;
 	char c;
-	int cnt = 2;
+	
+       	cnt = counter = 2;
 
 	num = unp;
 	tem = num;
@@ -184,8 +184,6 @@ int write_hex(char unp)
 		num /= 16;
 		counter++;
 	}
-	counter++;
-	counter++;
 	array = malloc(cnt * sizeof(int));
 	if (array == NULL)
 		return (-1);
