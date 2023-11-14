@@ -72,11 +72,11 @@ int print_r_string(va_list arg_ptr)
 			if (input[j] == buffer_1_byte[i])
 			{
 				write(1, output + j, 1);
-				i++;
-				continue;
+				break;
 			}
 			j++;
 		}
+		i++;
 	}
 
 	return (i);
