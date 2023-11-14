@@ -20,6 +20,7 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 		{"%u", print_unsigned},
 		{"%o", print_octal},
 		{"%x", print_hex},
+		{"%p", print_addr},
 		{"%X", print_hex_u},
 		{"%%", print_percent},
 		{"ok", print_buffer_return}
@@ -31,7 +32,7 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 	if (format[0] == '%' && format[1] == '\0')
 		return (print_none_return);
 
-	while (i < 13)
+	while (i < 14)
 	{
 		j = 0;
 		while (format[j] == (ops + i)->specifier[j] && format[j] != '\0')

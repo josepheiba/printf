@@ -39,5 +39,7 @@ int write_hex(char unp);
 int print_n_string(va_list arg_ptr);
 int print_r_string(va_list arg_ptr);
 int print_rev_string(va_list arg_ptr);
+int print_addr(va_list arg_ptr);
+int nilly(void);
 
 #endif

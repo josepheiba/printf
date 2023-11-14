@@ -81,3 +81,73 @@ int print_r_string(va_list arg_ptr)
 
 	return (i);
 }
+
+/**
+ * print_addr - Print an integer to the standard output.
+ * @arg_ptr: Variable argument list.
+ * Return: Number of characters printed.
+*/
+
+int print_addr(va_list arg_ptr)
+{
+	int i;
+	int *array;
+	int counter = 0;
+	void *numO;
+	unsigned long tem, num;
+	char c;
+	char slash = '0';
+	char ex = 'x';
+
+	numO = va_arg(arg_ptr, void *);
+	tem = num = (unsigned long)numO;
+
+	if (numO == NULL)
+		return (nilly());
+
+	while (num / 16 != 0)
+	{
+		num /= 16;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	write(1, &slash, 1);
+	write(1, &ex, 1);
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = tem % 16;
+		tem /= 16;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 7 + 32;
+		c = array[i] + '0';
+		write(1, &c, 1);
+	}
+	free(array);
+	return (counter + 2);
+}
+
+/**
+ * nilly - Print an integer to the standard output.
+ * Return: Number of characters printed.
+*/
+
+int nilly(void)
+{
+	char *buffer_1_byte = "(nil)";
+	int i;
+
+	i = 0;
+
+	while (*(buffer_1_byte + i) != '\0')
+	{
+		write(1, buffer_1_byte + i, 1);
+		i++;
+	}
+	return (i);
+}
