@@ -174,6 +174,7 @@ int write_hex(char unp)
 	int counter = 0;
 	unsigned int tem, num;
 	char c;
+	int cnt = 2;
 
 	num = unp;
 	tem = num;
@@ -185,21 +186,21 @@ int write_hex(char unp)
 	}
 	counter++;
 	counter++;
-	array = malloc(counter * sizeof(int));
+	array = malloc(cnt * sizeof(int));
 	if (array == NULL)
 		return (-1);
 
-	for (i = 0; i < counter; i++)
+	for (i = 0; i < cnt; i++)
 	{
 		array[i] = 0;
 	}
 
-	for (i = 0; i < counter; i++)
+	for (i = 0; i < cnt; i++)
 	{
 		array[i] = tem % 16;
 		tem /= 16;
 	}
-	for (i = counter - 1; i >= 0; i--)
+	for (i = cnt - 1; i >= 0; i--)
 	{
 		if (array[i] > 9)
 			array[i] = array[i] + 7;
