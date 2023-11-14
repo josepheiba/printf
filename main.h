@@ -27,6 +27,8 @@ int print_buffer(const char *format);
 int print_char(va_list arg_ptr);
 int print_string(va_list arg_ptr);
 int print_percent(va_list arg_ptr);
+int print_percent_2_space(va_list arg_ptr);
+int print_percent_space(va_list arg_ptr);
 int print_int(va_list arg_ptr);
 int print_int_plus(va_list arg_ptr);
 int print_int_space(va_list arg_ptr);
