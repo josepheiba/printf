@@ -19,10 +19,7 @@ int print_rev_string(va_list arg_ptr)
 
 	while (*(buffer_1_byte + i) != '\0')
 	{
-		if (*(buffer_1_byte + i) >= 32 && *(buffer_1_byte + i) < 127)
-			i++;
-		else
-			return (0);
+		i++;
 	}
 
 	j = i - 1;
