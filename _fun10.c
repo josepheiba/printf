@@ -173,8 +173,8 @@ int write_hex(char unp)
 	int *array;
 	unsigned int tem, num;
 	char c;
-	
-       	cnt = counter = 2;
+
+	cnt = counter = 2;
 
 	num = unp;
 	tem = num;
