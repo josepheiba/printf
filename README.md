@@ -1,6 +1,6 @@
-##printf
+# _printf
 
-#Handles the following conversion specifiers:
+## Handles the following conversion specifiers:
 
 %d
 %i
