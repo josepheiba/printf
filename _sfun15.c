@@ -32,7 +32,7 @@ int print_rev_string(va_list arg_ptr)
 			j--;
 		}
 		else
-			return (0);
+			return (-1);
 	}
 
 	return (i);
