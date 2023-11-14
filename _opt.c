@@ -58,7 +58,7 @@ int print_string(va_list arg_ptr)
 /**
  * print_percent - check code.
  * @arg_ptr : variable
- * Return: check declaration
+ * Return: check the declaration
  */
 
 int print_percent(va_list arg_ptr)
