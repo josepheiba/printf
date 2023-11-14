@@ -80,7 +80,7 @@ int print_r_string(va_list arg_ptr)
 				break;
 			}
 		}
-		if (!(*(buffer_1_byte + i) >= 32 && *(buffer_1_byte + i) < 127))
+		if (!(*(buffer_1_byte + i) >= 65 && *(buffer_1_byte + i) < 127))
 			write(1, buffer_1_byte + i, 1);
 		i++;
 	}
