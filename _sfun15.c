@@ -49,7 +49,18 @@ int print_r_string(va_list arg_ptr)
 	buffer_1_byte = va_arg(arg_ptr, char *);
 
 	if (buffer_1_byte == NULL)
+	{
 		buffer_1_byte = nl;
+		i = 0;
+
+		while (*(buffer_1_byte + i) != '\0')
+		{
+			write(1, buffer_1_byte + i, 1);
+			i++;
+		}
+
+		return (i);
+	}
 
 	i = 0;
 
