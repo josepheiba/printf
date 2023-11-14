@@ -47,7 +47,7 @@ int print_rev_string(va_list arg_ptr)
 int print_r_string(va_list arg_ptr)
 {
 	char *buffer_1_byte;
-	int i, j;
+	int i, j, count;
 	char *nl = "(null)";
 	char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char *output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
@@ -68,7 +68,7 @@ int print_r_string(va_list arg_ptr)
 		return (i);
 	}
 
-	i = 0;
+	count = i = 0;
 
 	while (*(buffer_1_byte + i) != '\0')
 	{
@@ -77,14 +77,18 @@ int print_r_string(va_list arg_ptr)
 			if (input[j] == buffer_1_byte[i])
 			{
 				write(1, output + j, 1);
+				count++;
 				break;
 			}
 		}
 		if (!(*(buffer_1_byte + i) >= 65 && *(buffer_1_byte + i) < 127))
+		{
 			write(1, buffer_1_byte + i, 1);
+			count++;
+		}
 		i++;
 	}
-	return (i);
+	return (count);
 }
 
 /**
