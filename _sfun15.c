@@ -22,7 +22,7 @@ int print_rev_string(va_list arg_ptr)
 		if (*(buffer_1_byte + i) >= 32 && *(buffer_1_byte + i) < 127)
 			i++;
 		else
-			return (-1);
+			return (0);
 	}
 
 	j = i - 1;
