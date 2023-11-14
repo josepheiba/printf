@@ -72,16 +72,16 @@ int print_r_string(va_list arg_ptr)
 
 	while (*(buffer_1_byte + i) != '\0')
 	{
-		j = 0;
-		while (input[j] != '\0')
+		for (j = 0; input[j] != '\0'; j++)
 		{
 			if (input[j] == buffer_1_byte[i])
 			{
 				write(1, output + j, 1);
 				break;
 			}
-			j++;
 		}
+		if (!(*(buffer_1_byte + i) >= 32 && *(buffer_1_byte + i) < 127))
+			write(1, buffer_1_byte + i, 1);
 		i++;
 	}
 	return (i);
