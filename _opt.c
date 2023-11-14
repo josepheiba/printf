@@ -15,7 +15,7 @@ int print_buffer(const char *format)
 /**
  * print_char - check code.
  * @arg_ptr : variable
- * Return: check declarations
+ * Return: check declaration
  */
 
 int print_char(va_list arg_ptr)
