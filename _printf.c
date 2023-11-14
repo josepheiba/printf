@@ -63,20 +63,19 @@ int _printf(const char *format, ...)
 	long int cnt, pls;
 	int *frankenstein;
 
-	frankenstein = malloc(sizeof(int));
-	if (frankenstein == NULL)
-		return (-1);
-
+	va_start(arg_ptr, format);
 	if (format == NULL)
 		return (-1);
-
-	va_start(arg_ptr, format);
 
 	i = 0;
 	cnt = pls = 0;
 
 	if (format[i] == '\0')
 		return (0);
+
+	frankenstein = malloc(sizeof(int));
+	if (frankenstein == NULL)
+		return (-1);
 
 	while (format[i] != '\0')
 	{
@@ -92,6 +91,10 @@ int _printf(const char *format, ...)
 	}
 	va_end(arg_ptr);
 	if (cnt == 0)
+	{
+		free(frankenstein);
 		return (-1);
+	}
+	free(frankenstein);
 	return (cnt);
 }
