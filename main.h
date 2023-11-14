@@ -3,8 +3,8 @@
 
 #include <stdarg.h>
 #include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct print_option - Struct print_option
@@ -45,6 +45,9 @@ int print_r_string(va_list arg_ptr);
 int print_rev_string(va_list arg_ptr);
 int print_addr(va_list arg_ptr);
 int nilly(void);
+void write0X(void);
+void write0x_(void);
+int zero(void);
 int print_hex_u_tag(va_list arg_ptr);
 int print_hex_tag(va_list arg_ptr);
 int print_octal_tag(va_list arg_ptr);

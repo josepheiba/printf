@@ -82,6 +82,12 @@ int print_octal_tag(va_list arg_ptr)
 	m = 1073741824; /* (8 ^ 10) */
 	a[0] = n / m;
 
+	if (n == 0)
+	{
+		write(1, &bigO, 1);
+		return (1);
+	}
+
 	for (i = 1; i < 11; i++)
 	{
 		m /= 8;
