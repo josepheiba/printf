@@ -16,7 +16,9 @@ int (*check_a_print(const char *format, int *frankenstein))(va_list arg_ptr)
 		{"%S", print_n_string},
 		{"%R", print_r_string},
 		{"%i", print_int},
+		{"%+i", print_int_plus},
 		{"%d", print_int},
+		{"%+d", print_int_plus},
 		{"%b", print_bin},
 		{"%u", print_unsigned},
 		{"%o", print_octal},
@@ -33,7 +35,7 @@ int (*check_a_print(const char *format, int *frankenstein))(va_list arg_ptr)
 	if (format[0] == '%' && format[1] == '\0')
 		return (print_none_return);
 
-	while (i < 14)
+	while (i < 16)
 	{
 		j = 0;
 		while (format[j] == (ops + i)->specifier[j] && format[j] != '\0')
