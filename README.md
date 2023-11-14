@@ -1,16 +1,15 @@
-_printf
+##printf
 
-Handles the following conversion specifiers:
+#Handles the following conversion specifiers:
 
-d
-i
-b
-u
-o
-x
-X
-S
-p
-
-r
-R
+%d
+%i
+%b
+%u
+%o
+%x
+%X
+%S
+%p
+%r
+%R
