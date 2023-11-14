@@ -30,7 +30,7 @@ int print_char(va_list arg_ptr)
 /**
  * print_string - check code.
  * @arg_ptr : variable
- * Return: check declaration
+ * Return: check d
  */
 
 int print_string(va_list arg_ptr)
