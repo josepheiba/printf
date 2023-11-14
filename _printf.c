@@ -91,5 +91,7 @@ int _printf(const char *format, ...)
 	}
 	va_end(arg_ptr);
 	free(frankenstein);
+	if (cnt == 0)
+		return (-1);
 	return (cnt);
 }
