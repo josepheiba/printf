@@ -77,8 +77,10 @@ int print_r_string(va_list arg_ptr)
 		}
 		if ((*(buffer_1_byte + i) < 65) || ((*(buffer_1_byte + i) > 90)
 					&& (*(buffer_1_byte + i) < 97)) || (*(buffer_1_byte + i) > 122))
-		write(1, buffer_1_byte + i, 1);
-		count++;
+		{
+			write(1, buffer_1_byte + i, 1);
+			count++;
+		}
 		i++;
 	}
 	return (count);
