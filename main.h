@@ -45,5 +45,8 @@ int print_r_string(va_list arg_ptr);
 int print_rev_string(va_list arg_ptr);
 int print_addr(va_list arg_ptr);
 int nilly(void);
+int print_hex_u_tag(va_list arg_ptr);
+int print_hex_tag(va_list arg_ptr);
+int print_octal_tag(va_list arg_ptr);
 
 #endif
