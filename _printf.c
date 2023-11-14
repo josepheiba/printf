@@ -65,6 +65,12 @@ int _printf(const char *format, ...)
 
 	i = 0;
 	cnt = pls = 0;
+
+	if (format[i] == '\0')
+	{
+		return (0);
+	}
+
 	while (format[i] != '\0')
 	{
 		pls = check_a_print(format + i)(arg_ptr);
@@ -84,5 +90,7 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(arg_ptr);
+	if (cnt == 0)
+		return (-1);
 	return (cnt);
 }
