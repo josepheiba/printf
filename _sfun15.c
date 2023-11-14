@@ -100,10 +100,10 @@ int print_addr(va_list arg_ptr)
 	char ex = 'x';
 
 	numO = va_arg(arg_ptr, void *);
-	tem = num = (unsigned long)numO;
-
 	if (numO == NULL)
 		return (nilly());
+	
+	tem = num = (unsigned long)numO;
 
 	while (num / 16 != 0)
 	{
