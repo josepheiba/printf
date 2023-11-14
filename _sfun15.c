@@ -30,6 +30,8 @@ int print_rev_string(va_list arg_ptr)
 			write(1, buffer_1_byte + j, 1);
 			j--;
 		}
+		else
+			return (0);
 	}
 
 	return (i);
