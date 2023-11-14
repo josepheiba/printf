@@ -41,7 +41,7 @@ int (*check_a_print(const char *format, int *frankenstein))(va_list arg_ptr)
 			j++;
 			if ((ops + i)->specifier[j] == '\0')
 			{
-				*frankenstein = 1;
+				*frankenstein = j - 1;
 				return ((ops + i)->function);
 			}
 		}
