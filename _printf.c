@@ -3,10 +3,11 @@
 /**
  * check_a_print - check the code.
  * @format : variable
+ * @frankenstein : variable
  * Return: check declaration
  */
 
-int (*check_a_print(const char *format))(va_list arg_ptr)
+int (*check_a_print(const char *format, int *frankenstein))(va_list arg_ptr)
 {
 	print_option ops[] = {
 		{"%c", print_char},
@@ -40,6 +41,7 @@ int (*check_a_print(const char *format))(va_list arg_ptr)
 			j++;
 			if ((ops + i)->specifier[j] == '\0')
 			{
+				*frankenstein = 1;
 				return ((ops + i)->function);
 			}
 		}
@@ -59,6 +61,11 @@ int _printf(const char *format, ...)
 	va_list arg_ptr;
 	int i;
 	long int cnt, pls;
+	int *frankenstein;
+
+	frankenstein = malloc(sizeof(int));
+	if (frankenstein == NULL)
+		return (-1);
 
 	if (format == NULL)
 		return (-1);
@@ -69,25 +76,17 @@ int _printf(const char *format, ...)
 	cnt = pls = 0;
 
 	if (format[i] == '\0')
-	{
 		return (0);
-	}
 
 	while (format[i] != '\0')
 	{
-		pls = check_a_print(format + i)(arg_ptr);
+		pls = check_a_print(format + i, frankenstein)(arg_ptr);
 		if (pls == -1)
-		{
 			pls = print_buffer(format + i);
-		}
 		else if (pls == -2)
-		{
 			pls = 0;
-		}
 		else
-		{
-			i++;
-		}
+			i = i + *frankenstein;
 		cnt += pls;
 		i++;
 	}

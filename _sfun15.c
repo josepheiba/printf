@@ -102,7 +102,7 @@ int print_addr(va_list arg_ptr)
 	numO = va_arg(arg_ptr, void *);
 	if (numO == NULL)
 		return (nilly());
-	
+
 	tem = num = (unsigned long)numO;
 
 	while (num / 16 != 0)
