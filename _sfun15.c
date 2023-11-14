@@ -43,8 +43,8 @@ int print_r_string(va_list arg_ptr)
 	char *buffer_1_byte;
 	int i, j;
 	char *nl = "(null)";
-	char input[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char output[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	buffer_1_byte = va_arg(arg_ptr, char *);
 
