@@ -37,6 +37,7 @@ int print_hex(va_list arg_ptr);
 int print_hex_u(va_list arg_ptr);
 int write_hex(char unp);
 int print_n_string(va_list arg_ptr);
+int print_r_string(va_list arg_ptr);
 int print_rev_string(va_list arg_ptr);
 
 #endif
