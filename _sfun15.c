@@ -25,7 +25,8 @@ int print_rev_string(va_list arg_ptr)
 	j = i - 1;
 	while (j >= 0)
 	{
-		if (*(buffer_1_byte + j) >= 32 && *(buffer_1_byte + j) < 127)
+		if ((*(buffer_1_byte + j) >= 32 && *(buffer_1_byte + j) < 127)
+				|| *(buffer_1_byte + j) == '\n')
 		{
 			write(1, buffer_1_byte + j, 1);
 			j--;
