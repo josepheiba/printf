@@ -78,7 +78,7 @@ int print_r_string(va_list arg_ptr)
 		}
 		i++;
 	}
-
+	write(1, buffer_1_byte + i, 1);
 	return (i);
 }
 
