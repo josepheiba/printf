@@ -16,3 +16,9 @@
 ### %p
 ### %r
 ### %R
+
+## Handles the following flag characters for non-custom conversion specifiers:
+
+### +
+### space
+### #
