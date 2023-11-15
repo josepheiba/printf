@@ -19,15 +19,16 @@ int print_int_space(va_list arg_ptr)
 	n = va_arg(arg_ptr, int);
 	i = 0;
 
-	i = i + write(1, &space, 1);
-
 	if (n < 0)
 	{
 		i = i + write(1, &minus, 1);
 		num = -n;
 	}
 	else
+	{
+		i = i + write(1, &space, 1);
 		num = n;
+	}
 
 	return (print_number(num, i));
 }
